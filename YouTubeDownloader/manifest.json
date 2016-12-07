@@ -1,0 +1,53 @@
+{
+  "name": "YouTube Downloader",
+  "version": "1.0",
+  "manifest_version": 2,
+  "author": "prongbang",
+  "description": "YouTube Downloader",
+  "browser_action": {
+    "default_icon": "src/img/ytd_128x128.png"
+  },
+  "icons": {
+    "128": "src/img/ytd_128x128.png",
+    "16": "src/img/ytd_32x32.png",
+    "48": "src/img/ytd_48x48.png"
+  },
+  "permissions": [
+    "tabs",
+    "webRequest",
+    "downloads",
+    "http://*/*",
+    "https://*/*",
+    "cookies",
+    "webRequestBlocking",
+    "<all_urls>"
+  ],
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "src/js/libs/jquery-1.11.3.min.js",
+        "src/js/utils.js",
+        "src/js/http.js",
+        "src/js/youtube.js",
+        "src/js/content.js"
+      ],
+      "css": [
+        "src/css/style.css"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "scripts": [
+      "src/js/libs/jquery-1.11.3.min.js",
+      "src/js/utils.js",
+      "src/js/background.js"
+    ],
+    "persistent": true
+  },
+  "web_accessible_resources": [ "*" ]
+}
