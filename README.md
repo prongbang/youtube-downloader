@@ -1,2 +1,1 @@
-# youtube-downloader
-Chrome Extension Youtube Downloader
+# Chrome Extension Youtube Downloader
